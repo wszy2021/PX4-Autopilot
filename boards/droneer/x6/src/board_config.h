@@ -215,10 +215,9 @@
 #define GPIO_HW_VER_SENSE      /* PH3 */  GPIO_ADC3_INP14
 #define HW_INFO_INIT_PREFIX    "DroneerX6"
 
-#define BOARD_NUM_SPI_CFG_HW_VERSIONS 2
+#define BOARD_NUM_SPI_CFG_HW_VERSIONS 1
 //                 Base/FMUM
 #define DroneerX6_0     HW_FMUM_ID(0x0)   // DroneerX6,
-#define DroneerX6_1     HW_FMUM_ID(0x1)
 
 #define UAVCAN_NUM_IFACES_RUNTIME  1
 
@@ -247,7 +246,7 @@
 #define DIRECT_PWM_OUTPUT_CHANNELS   9
 
 /* PWM Power */
-#define GPIO_PWM_VOLT_SEL               /* PD15  */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTG|GPIO_PIN6)
+#define GPIO_PWM_VOLT_SEL               /* PG6  */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTG|GPIO_PIN6)
 #define PWM_5V_VOLT_SEL(on_true)        px4_arch_gpiowrite(GPIO_PWM_VOLT_SEL, (on_true))
 
 /* Power supply control and monitoring GPIOs */
@@ -256,11 +255,11 @@
 #define GPIO_nPOWER_IN_B                /* PG2  */ (GPIO_INPUT|GPIO_PULLUP|GPIO_PORTG|GPIO_PIN2)
 #define GPIO_nPOWER_IN_C                /* PG3  */ (GPIO_INPUT|GPIO_PULLUP|GPIO_PORTG|GPIO_PIN3)
 
-#define GPIO_nVDD_BRICK1_VALID          GPIO_nPOWER_IN_A /* Brick 1 Is Chosen */
+#define GPIO_nVDD_BRICK1_VALID          GPIO_nPOWER_IN_C /* Brick 1 Is Chosen */
 #define GPIO_nVDD_BRICK2_VALID          GPIO_nPOWER_IN_B /* Brick 2 Is Chosen  */
 #define BOARD_NUMBER_BRICKS             2
 #define BOARD_NUMBER_DIGITAL_BRICKS     2
-#define GPIO_nVDD_USB_VALID             GPIO_nPOWER_IN_C /* USB     Is Chosen */
+#define GPIO_nVDD_USB_VALID             GPIO_nPOWER_IN_A /* USB     Is Chosen */
 
 #define GPIO_VDD_5V_PERIPH_nEN          /* PG4  */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_SET|GPIO_PORTG|GPIO_PIN4)
 #define GPIO_VDD_5V_PERIPH_nOC          /* PE15 */ (GPIO_INPUT |GPIO_FLOAT|GPIO_PORTE|GPIO_PIN15)
@@ -272,7 +271,6 @@
 
 /* Spare GPIO */
 
-#define GPIO_PG6                        /* PG6  */  (GPIO_INPUT|GPIO_PULLUP|GPIO_PORTG|GPIO_PIN6)
 #define GPIO_PD15                       /* PD15 */  (GPIO_INPUT|GPIO_FLOAT|GPIO_PORTD|GPIO_PIN15)
 
 /* ETHERNET GPIO */
@@ -462,7 +460,6 @@
 		GPIO_TONE_ALARM_IDLE,             \
 		GPIO_nSAFETY_SWITCH_LED_OUT_INIT, \
 		GPIO_SAFETY_SWITCH_IN,            \
-		GPIO_PG6,                         \
 		GPIO_nARMED_INIT,                 \
 		GPIO_PWM_VOLT_SEL                \
 	}
